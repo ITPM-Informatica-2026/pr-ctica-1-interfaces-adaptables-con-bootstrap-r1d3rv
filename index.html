@@ -3,34 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DPW II - ITPM 2026</title>
+    <title>FreshCart | Tienda en linea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --dark: #1e293b; --bg: #f8fafc; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .card { background: white; width: 90%; max-width: 800px; padding: 2rem; border-radius: 1rem; shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-left: 8px solid var(--primary); }
-        h1 { color: var(--dark); margin-top: 0; }
-        .badge { background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-        .box { border: 1px dashed #cbd5e1; padding: 1rem; border-radius: 0.5rem; }
+        :root {
+            --brand: #0f766e;
+            --brand-soft: #ccfbf1;
+            --ink: #102a43;
+            --paper: #f8faf7;
+            --sun: #facc15;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, #e9fff6 0%, transparent 28%),
+                radial-gradient(circle at 90% 0%, #fef9c3 0%, transparent 24%),
+                var(--paper);
+            color: var(--ink);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f766e 0%, #059669 100%);
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .product-card,
+        .category-card {
+            border: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(16, 42, 67, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            background: #fff;
+        }
+
+        .product-card:hover,
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px rgba(16, 42, 67, 0.14);
+        }
+
+        .product-price {
+            color: var(--brand);
+            font-weight: 800;
+        }
+
+        .category-card img,
+        .product-card img {
+            object-fit: cover;
+            height: 190px;
+            width: 100%;
+        }
+
+        .category-card img {
+            height: 130px;
+        }
+
+        .btn-fresh {
+            background: var(--sun);
+            color: #1f2937;
+            font-weight: 700;
+            border: none;
+        }
+
+        .btn-fresh:hover {
+            background: #eab308;
+            color: #111827;
+        }
+
+        .site-footer {
+            background: linear-gradient(135deg, #0b5f58 0%, #0f766e 100%);
+            color: #e6fffb;
+            border-radius: 18px 18px 0 0;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                border-radius: 0 0 20px 20px;
+            }
+
+            .site-footer {
+                border-radius: 14px 14px 0 0;
+            }
+        }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <div class="card">
-        <span class="badge">Sistemas Informáticos</span>
-        <h1>🌐 Diseño y Programación Web II</h1>
-        <p><strong>Estudiante:</strong> [TU NOMBRE COMPLETO]</p>
-        <hr>
-        <div class="grid">
-            <div class="box">
-                <strong>🔧 Stack Tecnológico:</strong><br>
-                PHP / MySQL / Laravel
+    <main class="container py-4 py-md-5">
+        <section class="hero p-4 p-md-5 mb-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <p class="mb-2 text-uppercase fw-bold">FreshCart</p>
+                    <h1 class="display-5 mb-3">Tu tienda en linea de frutas, verduras y mas</h1>
+                    <p class="mb-4">Productos frescos, entrega rapida y precios justos para tu hogar.</p>
+                    <button class="btn btn-fresh px-4 py-2">Comprar ahora</button>
+                </div>
+                <div class="col-lg-5">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80" class="img-fluid rounded-4" alt="Canasta con alimentos frescos">
+                </div>
             </div>
-            <div class="box">
-                <strong>📁 Proyecto Final:</strong><br>
-                [Nombre de tu Sistema]
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title h3 mb-4">Productos Destacados</h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80" alt="Fresas frescas">
+                        <div class="card-body">
+                            <h3 class="h5">Fresas Premium</h3>
+                            <p class="mb-2 text-secondary">Caja de 500g recien cosechada.</p>
+                            <p class="product-price mb-0">$4.99</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=900&q=80" alt="Aguacates organicos">
+                        <div class="card-body">
+                            <h3 class="h5">Aguacate Organico</h3>
+                            <p class="mb-2 text-secondary">Malla de 6 unidades seleccionadas.</p>
+                            <p class="product-price mb-0">$6.50</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=900&q=80" alt="Pan artesanal">
+                        <div class="card-body">
+                            <h3 class="h5">Pan Artesanal</h3>
+                            <p class="mb-2 text-secondary">Horneado del dia, suave y crujiente.</p>
+                            <p class="product-price mb-0">$2.80</p>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
+
+        <section>
+            <h2 class="section-title h3 mb-4">Compra por Categoria</h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="card category-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80" alt="Categoria frutas">
+                        <div class="card-body p-2">
+                            <p class="mb-0 fw-bold">Frutas</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="card category-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80" alt="Categoria verduras">
+                        <div class="card-body p-2">
+                            <p class="mb-0 fw-bold">Verduras</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="card category-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=600&q=80" alt="Categoria lacteos">
+                        <div class="card-body p-2">
+                            <p class="mb-0 fw-bold">Lacteos</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="card category-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80" alt="Categoria panaderia">
+                        <div class="card-body p-2">
+                            <p class="mb-0 fw-bold">Panaderia</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="card category-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?auto=format&fit=crop&w=600&q=80" alt="Categoria bebidas">
+                        <div class="card-body p-2">
+                            <p class="mb-0 fw-bold">Bebidas</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <article class="card category-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=600&q=80" alt="Categoria snacks">
+                        <div class="card-body p-2">
+                            <p class="mb-0 fw-bold">Snacks</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer mt-4 py-3">
+        <div class="container text-center fw-semibold">
+            ITPM ByRiderVargas 2026
         </div>
-    </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
