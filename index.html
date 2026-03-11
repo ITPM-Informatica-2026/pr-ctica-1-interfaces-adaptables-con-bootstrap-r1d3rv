@@ -3,34 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DPW II - ITPM 2026</title>
+    <title>FreshCart App | Compra desde tu movil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --dark: #1e293b; --bg: #f8fafc; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .card { background: white; width: 90%; max-width: 800px; padding: 2rem; border-radius: 1rem; shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-left: 8px solid var(--primary); }
-        h1 { color: var(--dark); margin-top: 0; }
-        .badge { background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-        .box { border: 1px dashed #cbd5e1; padding: 1rem; border-radius: 0.5rem; }
+        :root {
+            --brand: #0f766e;
+            --brand-deep: #0b5f58;
+            --brand-soft: #ccfbf1;
+            --ink: #102a43;
+            --paper: #f8faf7;
+            --sun: #facc15;
+            --sun-deep: #d4a90b;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background:
+                radial-gradient(circle at 5% 15%, #99f6e4 0%, transparent 30%),
+                radial-gradient(circle at 95% 5%, #fef08a 0%, transparent 28%),
+                radial-gradient(circle at 75% 90%, #a7f3d0 0%, transparent 26%),
+                radial-gradient(circle at 20% 80%, #fde68a 0%, transparent 22%),
+                var(--paper);
+            color: var(--ink);
+        }
+
+        .app-hero {
+            background: linear-gradient(135deg, #0b5c55 0%, var(--brand) 30%, #059669 65%, #10b981 100%);
+            border-radius: 28px;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 28px 60px rgba(15, 118, 110, 0.32);
+        }
+
+        .app-hero::before {
+            content: "";
+            position: absolute;
+            top: -70px;
+            left: -70px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(250, 204, 21, 0.26) 0%, rgba(250, 204, 21, 0) 70%);
+            pointer-events: none;
+        }
+
+        .app-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -80px -80px auto;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(167, 243, 208, 0.28) 0%, rgba(255, 255, 255, 0) 70%);
+            pointer-events: none;
+        }
+
+        .eyebrow,
+        .section-kicker {
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .app-hero .eyebrow {
+            display: inline-block;
+            background: rgba(250, 204, 21, 0.18);
+            border: 1px solid rgba(250, 204, 21, 0.45);
+            border-radius: 999px;
+            padding: 0.35rem 1rem;
+            color: #fde047;
+            letter-spacing: 0.15em;
+        }
+
+        .app-wordmark {
+            font-weight: 800;
+            font-size: clamp(3rem, 7.5vw, 5.2rem);
+            letter-spacing: -0.04em;
+            line-height: 1;
+            background: linear-gradient(130deg, #facc15 0%, #fef08a 38%, #ffffff 62%, #a7f3d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 6px 28px rgba(250, 204, 21, 0.45));
+        }
+
+        .app-title,
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .app-copy {
+            max-width: 540px;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .phone-stage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100%;
+        }
+
+        .phone-shell {
+            width: 290px;
+            border-radius: 36px;
+            padding: 12px;
+            background: linear-gradient(180deg, #153c38 0%, #081f1d 100%);
+            box-shadow: 0 24px 40px rgba(8, 31, 29, 0.4);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .phone-screen {
+            background: linear-gradient(180deg, #fdfef9 0%, #ecfdf5 100%);
+            border-radius: 26px;
+            padding: 18px;
+            min-height: 560px;
+            color: var(--ink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-notch {
+            width: 120px;
+            height: 16px;
+            border-radius: 0 0 14px 14px;
+            background: #0f172a;
+            margin: -18px auto 16px;
+        }
+
+        .app-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand-deep);
+            font-weight: 800;
+            font-size: 0.82rem;
+        }
+
+        .app-screen-card,
+        .feature-card {
+            border: 0;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 14px 32px rgba(16, 42, 67, 0.08);
+        }
+
+        .app-screen-banner {
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+            color: #fff;
+            border-radius: 20px;
+            padding: 1rem;
+        }
+
+        .app-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+        }
+
+        .app-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-thumb {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            object-fit: cover;
+        }
+
+        .price-tag {
+            color: var(--brand);
+            font-weight: 800;
+        }
+
+        .btn-buy {
+            background: linear-gradient(180deg, #fde047 0%, #facc15 100%);
+            color: #1f2937;
+            font-weight: 800;
+            border: 1px solid rgba(161, 98, 7, 0.28);
+            border-radius: 999px;
+            box-shadow: 0 6px 0 var(--sun-deep), 0 10px 18px rgba(250, 204, 21, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(180deg, #fef08a 0%, #facc15 100%);
+            color: #111827;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 var(--sun-deep), 0 14px 22px rgba(250, 204, 21, 0.34);
+        }
+
+        .btn-buy:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 var(--sun-deep), 0 6px 12px rgba(250, 204, 21, 0.24);
+        }
+
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.95rem 1.25rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 220px;
+        }
+
+        .btn-store-primary {
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+            box-shadow: 0 14px 24px rgba(8, 31, 29, 0.16);
+        }
+
+        .btn-store-secondary {
+            background: #fff;
+            color: var(--brand-deep);
+            box-shadow: 0 14px 24px rgba(8, 31, 29, 0.12);
+        }
+
+        .store-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .btn-store-primary .store-badge {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .btn-store-secondary .store-badge {
+            background: var(--brand-soft);
+        }
+
+        .features-wrap {
+            background: linear-gradient(145deg, #f0fdf9 0%, #ecfdf5 45%, #fefce8 100%);
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 18px 42px rgba(16, 42, 67, 0.09);
+        }
+
+        .features-wrap .row > .col:nth-child(1) .feature-card { border-top: 5px solid #14b8a6; }
+        .features-wrap .row > .col:nth-child(2) .feature-card { border-top: 5px solid #facc15; }
+        .features-wrap .row > .col:nth-child(3) .feature-card { border-top: 5px solid #0f766e; }
+        .features-wrap .row > .col:nth-child(4) .feature-card { border-top: 5px solid #f97316; }
+
+        .feature-card {
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 34px rgba(16, 42, 67, 0.12);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .site-footer {
+            background: linear-gradient(135deg, #0b5f58 0%, #0f766e 100%);
+            color: #e6fffb;
+            border-radius: 18px 18px 0 0;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 991px) {
+            .phone-shell {
+                width: 260px;
+            }
+
+            .phone-screen {
+                min-height: 520px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-hero,
+            .features-wrap {
+                border-radius: 20px;
+            }
+
+            .btn-store {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .site-footer {
+                border-radius: 14px 14px 0 0;
+            }
+        }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <div class="card">
-        <span class="badge">Sistemas Informáticos</span>
-        <h1>🌐 Diseño y Programación Web II</h1>
-        <p><strong>Estudiante:</strong> [TU NOMBRE COMPLETO]</p>
-        <hr>
-        <div class="grid">
-            <div class="box">
-                <strong>🔧 Stack Tecnológico:</strong><br>
-                PHP / MySQL / Laravel
+    <main class="container py-4 py-md-5">
+        <section class="app-hero p-4 p-lg-5 mb-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 order-2 order-lg-1">
+                    <div class="phone-stage">
+                        <div class="phone-shell">
+                            <div class="phone-screen">
+                                <div class="phone-notch"></div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="app-chip">FreshCart App</span>
+                                    <span class="small fw-bold text-secondary">9:41</span>
+                                </div>
+                                <div class="app-screen-banner mb-3">
+                                    <p class="mb-1 small text-uppercase fw-bold">Tu compra en minutos</p>
+                                    <h2 class="h4 mb-2">Frescura diaria para tu hogar</h2>
+                                    <p class="mb-0 small">Compra frutas, verduras y favoritos del mercado desde una sola app.</p>
+                                </div>
+                                <div class="app-screen-card p-3 mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h3 class="h6 mb-0 fw-bold">Destacados</h3>
+                                        <span class="small text-secondary">Entrega hoy</span>
+                                    </div>
+                                    <div class="app-list-item">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=400&q=80" alt="Fresas en la app" class="item-thumb">
+                                            <div>
+                                                <p class="mb-0 fw-bold small">Fresas Premium</p>
+                                                <p class="mb-0 small text-secondary">500g</p>
+                                            </div>
+                                        </div>
+                                        <span class="price-tag">$4.99</span>
+                                    </div>
+                                    <div class="app-list-item">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=400&q=80" alt="Aguacates en la app" class="item-thumb">
+                                            <div>
+                                                <p class="mb-0 fw-bold small">Aguacate</p>
+                                                <p class="mb-0 small text-secondary">Pack x6</p>
+                                            </div>
+                                        </div>
+                                        <span class="price-tag">$6.50</span>
+                                    </div>
+                                    <div class="app-list-item">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=400&q=80" alt="Pan artesanal en la app" class="item-thumb">
+                                            <div>
+                                                <p class="mb-0 fw-bold small">Pan del dia</p>
+                                                <p class="mb-0 small text-secondary">Recien horneado</p>
+                                            </div>
+                                        </div>
+                                        <span class="price-tag">$2.80</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-buy w-100 py-2">Pedir desde la app</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-1 order-lg-2">
+                    <p class="eyebrow mb-3">La app movil oficial</p>
+                    <h1 class="app-wordmark mb-3">FreshCart App</h1>
+                    <p class="app-copy fs-5 mb-4">Explora productos frescos, arma tu carrito en segundos y recibe tus compras con seguimiento en tiempo real. Todo con el mismo estilo cercano, limpio y fresco de FreshCart.</p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <a href="#" class="btn-store btn-store-primary">
+                            <span class="store-badge">A</span>
+                            <span>
+                                <small class="d-block fw-semibold opacity-75">Descargar en</small>
+                                AppStore
+                            </span>
+                        </a>
+                        <a href="#" class="btn-store btn-store-secondary">
+                            <span class="store-badge">G</span>
+                            <span>
+                                <small class="d-block fw-semibold text-secondary">Disponible en</small>
+                                Google Play
+                            </span>
+                        </a>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background:rgba(250,204,21,0.18);color:#fde047;border:1px solid rgba(250,204,21,0.35)">✓ Entrega express</span>
+                        <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background:rgba(167,243,208,0.18);color:#a7f3d0;border:1px solid rgba(167,243,208,0.35)">✓ Pago seguro</span>
+                        <span class="badge rounded-pill px-3 py-2 fw-semibold" style="background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25)">✓ Ofertas exclusivas</span>
+                    </div>
+                </div>
             </div>
-            <div class="box">
-                <strong>📁 Proyecto Final:</strong><br>
-                [Nombre de tu Sistema]
+        </section>
+
+        <section class="features-wrap mb-4">
+            <div class="d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3 mb-4">
+                <div>
+                    <p class="section-kicker text-success mb-2">Ventajas de la app</p>
+                    <h2 class="section-title h2 mb-0">Todo lo que hace mejor la experiencia FreshCart</h2>
+                </div>
             </div>
+            <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <div class="col">
+                    <article class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=700&q=80" alt="Entrega rapida FreshCart">
+                        <div class="p-4">
+                            <h3 class="h5 mb-2">Entregas mas rapidas</h3>
+                            <p class="mb-0 text-secondary">Programa pedidos en pocos toques y sigue al repartidor en tiempo real desde tu celular.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=80" alt="Catalogo fresco FreshCart">
+                        <div class="p-4">
+                            <h3 class="h5 mb-2">Catalogo fresco cada dia</h3>
+                            <p class="mb-0 text-secondary">La app muestra novedades, favoritos y productos recomendados con imagenes claras y precios actualizados.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=700&q=80" alt="Pagos seguros en FreshCart">
+                        <div class="p-4">
+                            <h3 class="h5 mb-2">Pagos seguros y simples</h3>
+                            <p class="mb-0 text-secondary">Guarda tus metodos de pago y confirma la compra con una experiencia rapida, confiable y ordenada.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1506617420156-8e4536971650?auto=format&fit=crop&w=700&q=80" alt="Ofertas exclusivas FreshCart">
+                        <div class="p-4">
+                            <h3 class="h5 mb-2">Ofertas exclusivas</h3>
+                            <p class="mb-0 text-secondary">Recibe promociones pensadas para ti y descuentos especiales solo disponibles dentro de la app movil.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer mt-4 py-3">
+        <div class="container text-center fw-semibold">
+            ITPM ByRiderVargas 2026
         </div>
-    </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
