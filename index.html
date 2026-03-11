@@ -85,6 +85,28 @@
             color: #111827;
         }
 
+        .btn-buy {
+            background: linear-gradient(180deg, #fde047 0%, #facc15 100%);
+            color: #1f2937;
+            font-weight: 800;
+            border: 1px solid rgba(161, 98, 7, 0.28);
+            border-radius: 999px;
+            box-shadow: 0 6px 0 #d4a90b, 0 10px 18px rgba(250, 204, 21, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(180deg, #fef08a 0%, #facc15 100%);
+            color: #111827;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #d4a90b, 0 14px 22px rgba(250, 204, 21, 0.34);
+        }
+
+        .btn-buy:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #d4a90b, 0 6px 12px rgba(250, 204, 21, 0.24);
+        }
+
         .site-footer {
             background: linear-gradient(135deg, #0b5f58 0%, #0f766e 100%);
             color: #e6fffb;
@@ -112,7 +134,7 @@
                     <p class="mb-2 text-uppercase fw-bold">FreshCart</p>
                     <h1 class="display-5 mb-3">Tu tienda en linea de frutas, verduras y mas</h1>
                     <p class="mb-4">Productos frescos, entrega rapida y precios justos para tu hogar.</p>
-                    <button class="btn btn-fresh px-4 py-2">Comprar ahora</button>
+                    <button class="btn btn-buy px-4 py-2">Comprar ahora</button>
                 </div>
                 <div class="col-lg-5">
                     <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80" class="img-fluid rounded-4" alt="Canasta con alimentos frescos">
@@ -126,30 +148,39 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="card product-card h-100">
                         <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80" alt="Fresas frescas">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h3 class="h5">Fresas Premium</h3>
                             <p class="mb-2 text-secondary">Caja de 500g recien cosechada.</p>
-                            <p class="product-price mb-0">$4.99</p>
+                            <div class="d-flex justify-content-between align-items-center gap-3 mt-auto pt-2">
+                                <p class="product-price mb-0">$4.99</p>
+                                <button class="btn btn-buy btn-sm px-3">Comprar Ahora</button>
+                            </div>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="card product-card h-100">
                         <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=900&q=80" alt="Aguacates organicos">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h3 class="h5">Aguacate Organico</h3>
                             <p class="mb-2 text-secondary">Malla de 6 unidades seleccionadas.</p>
-                            <p class="product-price mb-0">$6.50</p>
+                            <div class="d-flex justify-content-between align-items-center gap-3 mt-auto pt-2">
+                                <p class="product-price mb-0">$6.50</p>
+                                <button class="btn btn-buy btn-sm px-3">Comprar Ahora</button>
+                            </div>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="card product-card h-100">
                         <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=900&q=80" alt="Pan artesanal">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h3 class="h5">Pan Artesanal</h3>
                             <p class="mb-2 text-secondary">Horneado del dia, suave y crujiente.</p>
-                            <p class="product-price mb-0">$2.80</p>
+                            <div class="d-flex justify-content-between align-items-center gap-3 mt-auto pt-2">
+                                <p class="product-price mb-0">$2.80</p>
+                                <button class="btn btn-buy btn-sm px-3">Comprar Ahora</button>
+                            </div>
                         </div>
                     </article>
                 </div>
